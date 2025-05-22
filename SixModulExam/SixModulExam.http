@@ -1,0 +1,6 @@
+@SixModulExam_HostAddress = http://localhost:5248
+
+GET {{SixModulExam_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
