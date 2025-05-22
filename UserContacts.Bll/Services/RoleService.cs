@@ -45,4 +45,9 @@ public class RoleService(Repository.Services.IUserRoleRepository UserRoleReposit
         var users = await UserRoleRepository.GetAllUsersByRoleAsync(role);
         return users.Select(Converter).ToList();
     }
+
+    public async Task<long> AddRole(UserRole userRole)
+    {
+        return await UserRoleRepository.AddRoleAsync(userRole);
+    }
 }

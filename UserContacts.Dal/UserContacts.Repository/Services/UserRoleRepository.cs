@@ -14,6 +14,13 @@ public class UserRoleRepository : IUserRoleRepository
         _MainContext = mainContext;
     }
 
+    public async Task<long> AddRoleAsync(UserRole userRole)
+    {
+        await _MainContext.UserRole.AddAsync(userRole);
+        await _MainContext.SaveChangesAsync();
+        return userRole.Id;
+    }
+
     public async Task<List<UserRole>> GetAllRolesAsync()
     {
         return await _MainContext.UserRole.ToListAsync();

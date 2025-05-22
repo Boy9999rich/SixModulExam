@@ -7,5 +7,6 @@ namespace UserContacts.Repository.Services
         Task<ICollection<Users>> GetAllUsersByRoleAsync(string role);
         Task<List<UserRole>> GetAllRolesAsync();
         Task<long> GetRoleIdAsync(string role);
+        Task<long> AddRoleAsync(UserRole userRole);
     }
 }

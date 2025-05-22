@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using UserContacts.Bll.Services;
+using UserContacts.Dal.Entities;
 
 namespace SixModulExam.EndPoints
 {
@@ -26,6 +27,16 @@ namespace SixModulExam.EndPoints
                 return Results.Ok(users);
             })
             .WithName("GetUsersByRole");
+
+            userGroup.MapGet("/PostRole", [Authorize(Roles = "SuperAdmin")]
+            async (UserRole role, IRoleService _roleService) =>
+            {
+                var users = await _roleService.AddRole(role);
+                return Results.Ok(users);
+            })
+            .WithName("GetUsersByRole");
+
+
         }
     }
 }

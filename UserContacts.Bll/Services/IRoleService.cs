@@ -1,4 +1,5 @@
 ﻿using UserContacts.Bll.Dtos;
+using UserContacts.Dal.Entities;
 
 namespace UserContacts.Bll.Services
 {
@@ -7,5 +8,6 @@ namespace UserContacts.Bll.Services
         Task<ICollection<UserGetDto>> GetAllUsersByRoleAsync(string role);
         Task<List<RoleGetDto>> GetAllRolesAsync();
         Task<long> GetRoleIdAsync(string role);
+        Task<long> AddRole(UserRole userRole);
     }
 }
